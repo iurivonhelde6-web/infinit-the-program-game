@@ -137,6 +137,30 @@ export function setMuted(value: boolean) {
   else if (musicOn) void track.play().catch(() => {});
 }
 
+// Pausa tudo quando a página some (aba em segundo plano, janela fechada/minimizada) e retoma ao voltar.
+function onHide() {
+  track?.pause();
+  if (ctx?.state === 'running') void ctx.suspend();
+}
+function onShow() {
+  if (document.hidden) return;
+  if (ctx?.state === 'suspended') void ctx.resume();
+  if (track && musicOn && !muted) void track.play().catch(() => {});
+}
+document.addEventListener('visibilitychange', () => (document.hidden ? onHide() : onShow()));
+window.addEventListener('pagehide', onHide);
+window.addEventListener('pageshow', onShow);
+
+// Em dev, o HMR recarrega este módulo: para a trilha antiga para não ficar tocando órfã.
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    musicOn = false;
+    onHide();
+    track = null;
+    void ctx?.close();
+  });
+}
+
 /** Chame em um gesto do usuário (clique/tecla) para liberar o áudio. */
 export function unlock() {
   ensure();
