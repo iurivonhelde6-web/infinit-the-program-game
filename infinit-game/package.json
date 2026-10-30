@@ -1,0 +1,29 @@
+{
+  "name": "infinit-the-program-game",
+  "private": true,
+  "version": "3.0.0",
+  "description": "INFINIT - The Program Game: aprenda Java, Python e JavaScript resolvendo desafios em cenas no estilo 32 bits.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "node server/index.mjs",
+    "validate": "node server/validate.mjs",
+    "preview": "npm run build && npm start"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

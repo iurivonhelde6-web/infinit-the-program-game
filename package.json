@@ -1,12 +1,12 @@
 {
-  "name": "the-matrix-programming-game-root",
+  "name": "infinit-the-program-game-root",
   "private": true,
   "scripts": {
-    "postinstall": "npm install --prefix matrix-game",
-    "dev": "npm run dev --prefix matrix-game",
-    "build": "npm run build --prefix matrix-game",
-    "start": "npm start --prefix matrix-game",
-    "validate": "npm run validate --prefix matrix-game",
-    "preview": "npm run preview --prefix matrix-game"
+    "postinstall": "npm install --prefix infinit-game",
+    "dev": "npm run dev --prefix infinit-game",
+    "build": "npm run build --prefix infinit-game",
+    "start": "npm start --prefix infinit-game",
+    "validate": "npm run validate --prefix infinit-game",
+    "preview": "npm run preview --prefix infinit-game"
   }
 }
