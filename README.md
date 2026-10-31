@@ -1,12 +1,12 @@
-# The Matrix - Programming Game
+# The Infinit - Programming Game
 
 Jogo para aprender **Java, Python e JavaScript** resolvendo desafios em cenas no estilo 32 bits.
 
 | Personagem | Linguagem  | Onde o código roda                         |
 |------------|------------|--------------------------------------------|
-| Morpheus   | Java       | `javac` + JVM no servidor (compilação real) |
-| Neo        | Python     | CPython 3 no servidor                       |
-| Trinity    | JavaScript | Web Worker no navegador                     |
+| Weller     | Java       | `javac` + JVM no servidor (compilação real) |
+| Rick       | Python     | CPython 3 no servidor                       |
+| VH         | JavaScript | Web Worker no navegador                     |
 
 ## Rodar localmente
 
@@ -30,7 +30,7 @@ docker run --rm -p 8787:8787 --read-only --tmpfs /tmp:exec,size=128m \
   --memory=768m --cpus=1 --pids-limit=200 matrix-game
 ```
 
-**Vercel**: só hospeda o frontend estático. Trinity (JavaScript) funciona sozinha; para Morpheus e Neo,
+**Vercel**: só hospeda o frontend estático. VH (JavaScript) funciona sozinha; para Weller e Rick,
 suba o container acima em outro lugar e configure na Vercel `VITE_RUNNER_URL=https://seu-runner` e,
 no container, `CORS_ORIGIN=https://seu-site.vercel.app`.
 
@@ -44,10 +44,10 @@ com usuário sem privilégios e os limites do `docker run` acima.
 
 ## Como o jogo funciona
 
-1. **Abertura**: chuva de código → transição suave para o Morpheus em tela cheia → *CHOOSE YOUR DESTINY*.
-   O jogador escolhe clicando na pílula nas mãos dele. A trilha (`public/assets/soundtrack.mp3`) começa
+1. **Abertura**: chuva de código →  em tela cheia → *CHOOSE YOUR DESTINY*.
+   O jogador escolhe clicando na pílula. A trilha (`public/assets/soundtrack.mp3`) começa
    junto com a chuva e toca sem parar o jogo inteiro; se o navegador bloquear o som automático, aparece
-   antes uma tela "ENTRAR NA MATRIX" pedindo um clique (exigência dos navegadores).
+   antes uma tela "ENTRAR NA INFINIT" pedindo um clique (exigência dos navegadores).
 2. **Dificuldade** (antes do personagem) — cada uma tem seus próprios 10 desafios:
 
    | Nível | Desafios | Dicas | Pergunta errada |
@@ -56,10 +56,10 @@ com usuário sem privilégios e os limites do `docker run` acima.
    | Intermediário | 1ª fácil, depois nível pleno | conceituais, sem mostrar o resultado, após **3 min sem escrever** ou ao **errar a 2ª tentativa** | perde o bônus de XP |
    | Sênior | algoritmos complexos (DP, grafos, parser, backtracking…) | **nenhuma** | custa 1 integridade |
 
-3. **Personagem**: Morpheus (Java), Neo (Python) ou Trinity (JavaScript).
+3. **Personagem**: Weller (Java), Rick (Python) ou VH (JavaScript).
 4. **Prólogo** + **10 fases**. Cada fase tem:
    - um **capítulo** da história (cena própria, continuação da narrativa);
-   - um **interrogatório** com 2 perguntas de múltipla escolha sobre Matrix + programação no nível escolhido
+   - um **interrogatório** com 2 perguntas de múltipla escolha sobre Infinit + programação no nível escolhido
      (60 perguntas no total, com explicação da resposta);
    - o **desafio de código** compilado/executado de verdade. Acertou → cena do personagem; errou → Agente
      Smith. Erros de compilação não custam integridade; com 3 testes falhos o Smith te captura (o progresso fica salvo).
